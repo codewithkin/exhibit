@@ -12,11 +12,22 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@better-auth/expo": "catalog:",
+    "@exhibit/env": "workspace:*",
     "@expo/metro-runtime": "~6.1.2",
     "@expo/vector-icons": "^15.0.3",
     "@gorhom/bottom-sheet": "^5",
     "@react-navigation/drawer": "^7.3.9",
     "@react-navigation/elements": "^2.8.1",
+    "@rn-primitives/label": "^1.2.0",
+    "@rn-primitives/portal": "^1.3.0",
+    "@rn-primitives/slot": "^1.2.0",
+    "@rn-primitives/types": "^1.2.0",
+    "@tanstack/react-query": "catalog:",
+    "better-auth": "catalog:",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "dotenv": "catalog:",
     "expo": "^54.0.23",
     "expo-constants": "~18.0.10",
     "expo-font": "~14.0.9",
@@ -42,12 +53,7 @@
     "tailwind-variants": "^3.2.2",
     "tailwindcss": "^4.1.18",
     "uniwind": "^1.2.2",
-    "@tanstack/react-query": "catalog:",
-    "better-auth": "catalog:",
-    "@better-auth/expo": "catalog:",
-    "dotenv": "catalog:",
-    "zod": "catalog:",
-    "@exhibit/env": "workspace:*"
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@types/node": "^24.10.0",
