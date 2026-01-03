@@ -154,9 +154,9 @@ export function AuthScreen({ onBack }: AuthScreenProps) {
                         variant="outline"
                         size="lg"
                         onPress={handleGoogleSignIn}
-                        disabled={isGoogleLoading}
+                        disabled={isGoogleLoading || isLoading}
                     >
-                        <Text>{isGoogleLoading ? "Connecting..." : "Continue with Google"}</Text>
+                        <Text>{isGoogleLoading ? "Signing in with Google" : "Continue with Google"}</Text>
                     </Button>
                 </MotiView>
 
@@ -194,7 +194,7 @@ export function AuthScreen({ onBack }: AuthScreenProps) {
 
                         <Button
                             onPress={handleMagicLink}
-                            disabled={isLoading || !email}
+                            disabled={isLoading || isGoogleLoading || !email}
                             size="lg"
                         >
                             <Text className="text-primary-foreground">

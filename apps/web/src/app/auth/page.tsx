@@ -116,10 +116,10 @@ export default function AuthPage() {
           variant="outline"
           className="w-full mb-4 h-11"
           onClick={handleGoogleSignIn}
-          disabled={isGoogleLoading}
+          disabled={isGoogleLoading || isLoading}
         >
           {isGoogleLoading ? (
-            "Connecting..."
+            "Signing in with Google"
           ) : (
             <>
               <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
@@ -173,7 +173,7 @@ export default function AuthPage() {
           <Button
             type="submit"
             className="w-full h-11"
-            disabled={isLoading || !email}
+            disabled={isLoading || isGoogleLoading || !email}
           >
             {isLoading ? "Sending..." : "Continue with Email"}
           </Button>
