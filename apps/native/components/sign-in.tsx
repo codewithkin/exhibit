@@ -168,28 +168,24 @@ function SignIn({ onSwitchToSignUp }: { onSwitchToSignUp?: () => void }) {
       <View className="flex-row mb-6 bg-muted rounded-sm p-1">
         <Pressable
           onPress={() => setAuthMode("magic-link")}
-          className={`flex-1 py-2 rounded-sm items-center ${
-            authMode === "magic-link" ? "bg-background shadow-sm" : ""
-          }`}
+          className={`flex-1 py-2 rounded-sm items-center ${authMode === "magic-link" ? "bg-background shadow-sm" : ""
+            }`}
         >
           <Text
-            className={`text-sm font-medium ${
-              authMode === "magic-link" ? "text-foreground" : "text-muted-foreground"
-            }`}
+            className={`text-sm font-medium ${authMode === "magic-link" ? "text-foreground" : "text-muted-foreground"
+              }`}
           >
             Magic Link
           </Text>
         </Pressable>
         <Pressable
           onPress={() => setAuthMode("password")}
-          className={`flex-1 py-2 rounded-sm items-center ${
-            authMode === "password" ? "bg-background shadow-sm" : ""
-          }`}
+          className={`flex-1 py-2 rounded-sm items-center ${authMode === "password" ? "bg-background shadow-sm" : ""
+            }`}
         >
           <Text
-            className={`text-sm font-medium ${
-              authMode === "password" ? "text-foreground" : "text-muted-foreground"
-            }`}
+            className={`text-sm font-medium ${authMode === "password" ? "text-foreground" : "text-muted-foreground"
+              }`}
           >
             Password
           </Text>
