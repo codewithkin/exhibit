@@ -1,16 +1,49 @@
+enum UserRole {
+  ARTIST
+  COLLECTOR
+}
+
 model User {
-  id            String    @id
-  name          String
-  email         String
-  emailVerified Boolean   @default(false)
-  image         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  sessions      Session[]
-  accounts      Account[]
+  id                  String         @id
+  name                String
+  email               String
+  emailVerified       Boolean        @default(false)
+  image               String?
+  role                UserRole?
+  onboardingCompleted Boolean        @default(false)
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
+  sessions            Session[]
+  accounts            Account[]
+  categories          UserCategory[]
 
   @@unique([email])
   @@map("user")
+}
+
+model Category {
+  id        String         @id @default(cuid())
+  name      String         @unique
+  slug      String         @unique
+  icon      String?
+  createdAt DateTime       @default(now())
+  users     UserCategory[]
+
+  @@map("category")
+}
+
+model UserCategory {
+  id         String   @id @default(cuid())
+  userId     String
+  categoryId String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, categoryId])
+  @@index([userId])
+  @@index([categoryId])
+  @@map("user_category")
 }
 
 model Session {
