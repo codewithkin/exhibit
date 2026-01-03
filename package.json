@@ -32,9 +32,10 @@
     "db:migrate": "turbo -F @exhibit/db db:migrate"
   },
   "dependencies": {
+    "@exhibit/env": "workspace:*",
+    "@sinclair/typebox": "0.27",
     "dotenv": "catalog:",
-    "zod": "catalog:",
-    "@exhibit/env": "workspace:*"
+    "zod": "catalog:"
   },
   "devDependencies": {
     "turbo": "^2.6.3",

@@ -5,6 +5,7 @@
       "name": "exhibit",
       "dependencies": {
         "@exhibit/env": "workspace:*",
+        "@sinclair/typebox": "0.27",
         "dotenv": "catalog:",
         "zod": "catalog:",
       },
