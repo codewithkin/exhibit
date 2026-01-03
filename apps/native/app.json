@@ -1,14 +1,84 @@
 {
   "expo": {
     "scheme": "exhibit",
-    "userInterfaceStyle": "automatic",
-    "orientation": "default",
+    "userInterfaceStyle": "light",
+    "orientation": "portrait",
     "web": {
       "bundler": "metro"
     },
-    "name": "exhibit",
+    "name": "Exhibit",
     "slug": "exhibit",
-    "plugins": ["expo-font"],
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "bundleIdentifier": "com.exhibit.app",
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Exhibit needs camera access to capture your artwork",
+        "NSPhotoLibraryUsageDescription": "Exhibit needs photo library access to upload your artwork",
+        "NSPhotoLibraryAddUsageDescription": "Exhibit needs permission to save images to your library",
+        "NSMicrophoneUsageDescription": "Exhibit needs microphone access for video recordings"
+      }
+    },
+    "android": {
+      "package": "com.exhibit.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "RECORD_AUDIO",
+        "VIBRATE",
+        "RECEIVE_BOOT_COMPLETED"
+      ]
+    },
+    "plugins": [
+      "expo-font",
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Exhibit needs camera access to capture your artwork"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Exhibit needs photo library access to upload your artwork",
+          "cameraPermission": "Exhibit needs camera access to capture your artwork"
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Exhibit needs permission to access your photos",
+          "savePhotosPermission": "Exhibit needs permission to save images to your library"
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/notification-icon.png",
+          "color": "#000000"
+        }
+      ],
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Exhibit needs microphone access for video recordings"
+        }
+      ],
+      "expo-splash-screen",
+      "@react-native-community/datetimepicker"
+    ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
