@@ -6,10 +6,22 @@ import prisma from "@exhibit/db";
 
 const app = new Hono();
 
+// Allow multiple origins for development
+const allowedOrigins = [
+  env.CORS_ORIGIN,
+  "http://localhost:3001",
+  "http://localhost:3000",
+  "http://127.0.0.1:3001",
+  "http://127.0.0.1:3000",
+];
+
 app.use(
   "*",
   cors({
-    origin: env.CORS_ORIGIN,
+    origin: (origin) => {
+      if (!origin) return env.CORS_ORIGIN;
+      return allowedOrigins.includes(origin) ? origin : env.CORS_ORIGIN;
+    },
     allowMethods: ["GET", "POST", "PUT", "OPTIONS"],
     allowHeaders: ["Content-Type", "Authorization"],
     credentials: true,
