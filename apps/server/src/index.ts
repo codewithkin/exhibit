@@ -1,25 +1,31 @@
-import { cors } from "@elysiajs/cors";
+import { Hono } from "hono";
+import { cors } from "hono/cors";
 import { auth } from "@exhibit/auth";
 import { env } from "@exhibit/env/server";
-import { Elysia } from "elysia";
 
-const app = new Elysia()
-  .use(
-    cors({
-      origin: env.CORS_ORIGIN,
-      methods: ["GET", "POST", "OPTIONS"],
-      allowedHeaders: ["Content-Type", "Authorization"],
-      credentials: true,
-    }),
-  )
-  .all("/api/auth/*", async (context) => {
-    const { request, status } = context;
-    if (["POST", "GET"].includes(request.method)) {
-      return auth.handler(request);
-    }
-    return status(405);
+const app = new Hono();
+
+app.use(
+  "*",
+  cors({
+    origin: env.CORS_ORIGIN,
+    allowMethods: ["GET", "POST", "OPTIONS"],
+    allowHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   })
-  .get("/", () => "OK")
-  .listen(3000, () => {
-    console.log("Server is running on http://localhost:3000");
-  });
+);
+
+app.on(["GET", "POST"], "/api/auth/*", (c) => {
+  return auth.handler(c.req.raw);
+});
+
+app.get("/", (c) => {
+  return c.text("OK");
+});
+
+export default {
+  port: 3000,
+  fetch: app.fetch,
+};
+
+console.log("Server is running on http://localhost:3000");

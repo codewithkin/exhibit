@@ -10,14 +10,13 @@
     "start": "bun run dist/index.js"
   },
   "dependencies": {
-    "@elysiajs/cors": "^1.3.3",
     "@exhibit/auth": "workspace:*",
     "@exhibit/db": "workspace:*",
     "@exhibit/env": "workspace:*",
     "@prisma/extension-accelerate": "^3.0.1",
     "better-auth": "catalog:",
     "dotenv": "catalog:",
-    "elysia": "^1.3.21",
+    "hono": "^4.11.3",
     "zod": "catalog:"
   },
   "devDependencies": {
