@@ -191,22 +191,20 @@ export default function SignUpForm({ onSwitchToSignIn }: { onSwitchToSignIn: () 
         <button
           type="button"
           onClick={() => setAuthMode("magic-link")}
-          className={`flex-1 py-2 text-sm font-medium rounded-sm transition-colors ${
-            authMode === "magic-link"
+          className={`flex-1 py-2 text-sm font-medium rounded-sm transition-colors ${authMode === "magic-link"
               ? "bg-background text-foreground shadow-sm"
               : "text-muted-foreground hover:text-foreground"
-          }`}
+            }`}
         >
           Magic Link
         </button>
         <button
           type="button"
           onClick={() => setAuthMode("email")}
-          className={`flex-1 py-2 text-sm font-medium rounded-sm transition-colors ${
-            authMode === "email"
+          className={`flex-1 py-2 text-sm font-medium rounded-sm transition-colors ${authMode === "email"
               ? "bg-background text-foreground shadow-sm"
               : "text-muted-foreground hover:text-foreground"
-          }`}
+            }`}
         >
           Password
         </button>
