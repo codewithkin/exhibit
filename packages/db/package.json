@@ -5,6 +5,9 @@
     ".": {
       "default": "./src/index.ts"
     },
+    "./categories": {
+      "default": "./src/categories.ts"
+    },
     "./*": {
       "default": "./src/*.ts"
     }
@@ -13,7 +16,8 @@
     "db:push": "prisma db push",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "db:seed": "bun run src/seed.ts"
   },
   "devDependencies": {
     "prisma": "^7.1.0",
