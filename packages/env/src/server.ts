@@ -11,6 +11,15 @@ export const env = createEnv({
     POLAR_SUCCESS_URL: z.url(),
     CORS_ORIGIN: z.url(),
     NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
+    // Google OAuth
+    GOOGLE_CLIENT_ID: z.string().min(1).optional(),
+    GOOGLE_CLIENT_SECRET: z.string().min(1).optional(),
+    // Email (nodemailer)
+    SMTP_HOST: z.string().min(1).optional(),
+    SMTP_PORT: z.coerce.number().optional().default(587),
+    SMTP_USER: z.string().optional(),
+    SMTP_PASS: z.string().optional(),
+    SMTP_FROM: z.string().email().optional(),
   },
   runtimeEnv: process.env,
   emptyStringAsUndefined: true,

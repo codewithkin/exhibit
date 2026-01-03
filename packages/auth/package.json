@@ -11,17 +11,19 @@
   },
   "scripts": {},
   "devDependencies": {
-    "typescript": "catalog:",
-    "@exhibit/config": "workspace:*"
+    "@exhibit/config": "workspace:*",
+    "@types/nodemailer": "^7.0.4",
+    "typescript": "catalog:"
   },
   "dependencies": {
-    "better-auth": "catalog:",
     "@better-auth/expo": "catalog:",
+    "@exhibit/db": "workspace:*",
+    "@exhibit/env": "workspace:*",
     "@polar-sh/better-auth": "catalog:",
     "@polar-sh/sdk": "^0.34.16",
+    "better-auth": "catalog:",
     "dotenv": "catalog:",
-    "zod": "catalog:",
-    "@exhibit/env": "workspace:*",
-    "@exhibit/db": "workspace:*"
+    "nodemailer": "^7.0.12",
+    "zod": "catalog:"
   }
 }
