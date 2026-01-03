@@ -1,0 +1,3 @@
+{
+  "extends": "@exhibit/config/tsconfig.base.json"
+}

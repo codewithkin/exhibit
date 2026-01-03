@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "scheme": "exhibit",
+    "userInterfaceStyle": "automatic",
+    "orientation": "default",
+    "web": {
+      "bundler": "metro"
+    },
+    "name": "exhibit",
+    "slug": "exhibit",
+    "plugins": ["expo-font"],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}
