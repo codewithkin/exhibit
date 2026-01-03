@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Crimson_Pro, Inter } from "next/font/google";
 
 import "../index.css";
-import Header from "@/components/header";
 import Providers from "@/components/providers";
 
 const crimsonPro = Crimson_Pro({
@@ -19,8 +18,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "exhibit",
-  description: "exhibit",
+  title: "Exhibit",
+  description: "A platform for artists to showcase their work",
 };
 
 export default function RootLayout({
@@ -29,13 +28,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${crimsonPro.variable} ${inter.variable} antialiased`}>
+    <html lang="en">
+      <body className={`${crimsonPro.variable} ${inter.variable} antialiased bg-background text-foreground`}>
         <Providers>
-          <div className="grid grid-rows-[auto_1fr] h-svh">
-            <Header />
-            {children}
-          </div>
+          {children}
         </Providers>
       </body>
     </html>
